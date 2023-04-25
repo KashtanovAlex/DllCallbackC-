@@ -10,15 +10,18 @@ namespace dllCallback.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        //private const string Path = "C:\\Users\\kashtanov\\Desktop\\ArmDllTest-repo\\build\\bin\\RelWithDebInfo\\script_arm.dll";
+        private const string Path = "/home/kashtanov/GitBinary/ArmDll/lib/libscript_arm.so";
+        
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void DelegateCow();
 
-        [DllImport("C:\\Users\\kashtanov\\Desktop\\ArmDllTest-repo\\build\\bin\\RelWithDebInfo\\script_arm.dll")]
+        [DllImport(Path)]
         public static extern void RegisterFunctions([MarshalAs(UnmanagedType.FunctionPtr)] DelegateCow a, [MarshalAs(UnmanagedType.FunctionPtr)] DelegateCow b);
 
-        [DllImport("C:\\Users\\kashtanov\\Desktop\\ArmDllTest-repo\\build\\bin\\RelWithDebInfo\\script_arm.dll")]
+        [DllImport(Path)]
         public static extern void Print();
-        [DllImport("C:\\Users\\kashtanov\\Desktop\\ArmDllTest-repo\\build\\bin\\RelWithDebInfo\\script_arm.dll")]
+        [DllImport(Path)]
         public static extern void PrintValue(int val);
 
         
